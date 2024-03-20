@@ -4,6 +4,7 @@ adder is constructed using 4 1-bit full adders Field Programmable Gate Arrays (F
 is the Altera Cyclone® V SE 5CSXFC6D6F31C6N device. Two VHDL concepts are required for this project. 
 - Instantiation
 - Singals
+
 Instantiation refers to the action of calling a previously designed block in VHDL from the
 architecture of a higher hierarchy. For example, the full adder is going to be designed in VHDL
 and instantiated from the 4-bit Parallel Adder, which is a higher hierarchy VHDL design.
