@@ -1,5 +1,5 @@
 # 4bit-Adder
-In this project a 4-bit adder is going to be implemented in the FPGA. This 4-bit adder is constructed using 4 1-bit full adders 
+In this project a 4-bit adder is going to be implemented in the FPGA. This 4-bit adder is constructed using 4 1-bit full adders on a
 Field Programmable Gate Arrays (FPGA). The board used to implement this 4-bit adder is the Altera Cyclone® V SE 5CSXFC6D6F31C6N 
 device. Two VHDL concepts are required for this project. 
 - Instantiation
@@ -21,6 +21,10 @@ higher hierarchy Entity. That is, that the connections that the instantiation re
 in the same section as the components before BEGIN of the architecture. When defining a signal, it has to be specified what
 type is it (STD_LOGIC, STD_LOGIC_VECTOR (range), or any other type).
 
+This 4 bit adder uses the first 7 switches (0-7) as the inputs and uses switch 9 as the carry in value. Swithches 0, 1, 2, and 3 are 
+used for the first 4 bit number with 0 being the least signicant bit (LSB) and 3 being the most significant bit. The same goes for 
+switches 4-7. Switch 9 is our carry in bit, which means that if we have this switch high (lets assume both A and B are 0) the result
+will be a 1. When there is a overflow meaning that the result cannot be represented using 4 bits, then LED 9 will be set high which will indicate overflow (8+8=0 but overflow LED is on). 
 
 
  
