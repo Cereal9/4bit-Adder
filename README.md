@@ -16,8 +16,9 @@ Instantiation of the FullAdder entity requires the following steps:
     2. After that it is required to define what component is being instantiated.
     3. Then the PORT MAP specifies the inputs, outputs, and signals connected to the current instantiation.
 
-In the 4 bit adder file, you can see there are 4 instatiation of full adders that are then connected together to create a 4 bit adder. Visually we can see in Figure 1. how they connect when the connection are made correctly. 
-![4bitadder](https://github.com/Cereal9/4bit-Adder/assets/115047595/8381dda8-446e-4527-ae34-956bd93bcd52)
+In the 4 bit adder file, you can see there are 4 instatiation of full adders that are then connected together to create a 4 bit 
+adder. Visually we can see in Figure 1. how they connect when the connection are made correctly. 
+![4bitadder](https://github.com/Cereal9/4bit-Adder/assets/115047595/dd31e573-be66-41ba-b773-1a9f243a6d6b)
 
 
 Signal declaration is often required when the input/output of an instantiation is not connected to the final input/output of the 
