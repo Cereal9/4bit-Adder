@@ -1,38 +1,32 @@
-# 4bit-Adder
-In this project a 4-bit adder is going to be implemented in the FPGA. This 4-bit adder is constructed using 4 1-bit full adders on a
-Field Programmable Gate Arrays (FPGA). The board used to implement this 4-bit adder is the Altera Cyclone® V SE 5CSXFC6D6F31C6N 
-device. Two VHDL concepts are required for this project. 
-- Instantiation
-- Singals
+# 4-bit Adder Implementation on FPGA
+This project aims to implement a 4-bit adder on an Altera Cyclone® V SE 5CSXFC6D6F31C6N Field Programmable Gate Array (FPGA). The 
+4-bit adder is constructed by integrating four 1-bit full adders. Two fundamental VHDL concepts utilized in this project are 
+instantiation and signal declaration.
 
-Instantiation refers to the action of calling a previously designed block in VHDL from the
-architecture of a higher hierarchy. For example, the full adder is going to be designed in VHDL
-and instantiated from the 4-bit Parallel Adder, which is a higher hierarchy VHDL design.
-Instantiation of the FullAdder entity requires the following steps:
-1. Both VHDL files the FullAdder and the FourBitAdder to be included in the project files.
-2. In the higher hierarchy VHDL file, the FourBitAdder, the entity of the full adder is copied as a COMPONENT after the architecture declaration and before begin of the architecture
-3. Create an instantiation of the FullAdder component after the architecture begin and do a port mapping. The port mapping is carried out by declaring what inputs, outputs, or signals are going to connect to the port of the component.
-    1. At the beginning of the line, you must provide a name for the instantiation.
-    2. After that it is required to define what component is being instantiated.
-    3. Then the PORT MAP specifies the inputs, outputs, and signals connected to the current instantiation.
+Instantiation refers to incorporating a previously designed block in VHDL within the architecture of a higher-level entity. For 
+instance, the full adder is initially designed in VHDL and then instantiated within the 4-bit Parallel Adder, which acts as a higher 
+hierarchy VHDL design. The process of instantiating the FullAdder entity involves the following steps:
+1. Both VHDL files, FullAdder and FourBitAdder, must be included in the project files.
+2. In the higher-level VHDL file (FourBitAdder), the entity of the full adder is replicated as a COMPONENT after the architecture declaration and before the beginning of the architecture.
+3. An instantiation of the FullAdder component is created after the architecture's begin statement, and port mapping is performed to connect inputs, outputs, or signals to the component's ports.
+    1. A unique name is assigned to the instantiation.
+    2. The component being instantiated is identified.
+    3. PORT MAP specifies the connections between inputs, outputs, and signals of the current instantiation.
 
-In the 4 bit adder file, you can see there are 4 instatiation of full adders that are then connected together to create a 4 bit 
-adder. Visually we can see in Figure 1. how they connect when the connection are made correctly. 
+In the 4-bit adder file, four instances of full adders are instantiated and connected together to form the 4-bit adder. The 
+schematic representation illustrates how these connections are made to achieve the desired functionality.
 ![4bitadder](https://github.com/Cereal9/4bit-Adder/assets/115047595/dd31e573-be66-41ba-b773-1a9f243a6d6b)
 
-The sum on the full adders are then assigned to each of the LEDs and will represent the results in binaray. For example 0111(7) + 
-0011 (3) = 1010 (10), and the LEDs will follow the order of 1010 which will be On, Off, On and Off to represent 10.
+The outputs of each full adder, representing the sum, are assigned to individual LEDs to represent the result in binary. For 
+example, if we add 0111 (7) and 0011 (3), the result 1010 (10) will be displayed on the LEDs, where each LED corresponds to a binary 
+digit.
 
-Signal declaration is often required when the input/output of an instantiation is not connected to the final input/output of the 
-higher hierarchy Entity. That is, that the connections that the instantiation required are only internal. The signals are declared 
-in the same section as the components before BEGIN of the architecture. When defining a signal, it has to be specified what
-type is it (STD_LOGIC, STD_LOGIC_VECTOR (range), or any other type).
+Signal declaration becomes necessary when the inputs/outputs of an instantiation are not directly connected to the final inputs/
+outputs of the higher hierarchy entity. In such cases, signals are declared before the BEGIN keyword in the architecture section. 
+When defining a signal, its type (such as STD_LOGIC, STD_LOGIC_VECTOR (range), or any other type) must be specified.
 
-This 4 bit adder uses the first 7 switches (0-7) as the inputs and uses switch 9 as the carry in value. Swithches 0, 1, 2, and 3 are 
-used for the first 4 bit number with 0 being the least signicant bit (LSB) and 3 being the most significant bit. The same goes for 
-switches 4-7. Switch 9 is our carry in bit, which means that if we have this switch high (lets assume both A and B are 0) the result
-will be a 1. When there is a overflow meaning that the result cannot be represented using 4 bits, then LED 9 will be set high which 
-will indicate overflow (8+8=0 but overflow LED is on). 
-
-
- 
+This 4-bit adder utilizes the first seven switches (0-7) as inputs, with switch 9 serving as the carry-in value. Switches 0 through 
+3 represent the first 4-bit number, where 0 is the least significant bit (LSB) and 3 is the most significant bit (MSB). Similarly, 
+switches 4 through 7 represent the second 4-bit number. Switch 9 acts as the carry-in bit, setting it high results in a carry output 
+when both A and B are 0. In case of overflow, indicating a result that cannot be represented using 4 bits, LED 9 will be illuminated 
+to signal overflow (e.g., 8 + 8 = 0, but overflow LED is on).
