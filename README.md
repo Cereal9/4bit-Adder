@@ -27,6 +27,5 @@ When defining a signal, its type (such as STD_LOGIC, STD_LOGIC_VECTOR (range), o
 
 This 4-bit adder utilizes the first seven switches (0-7) as inputs, with switch 9 serving as the carry-in value. Switches 0 through 
 3 represent the first 4-bit number, where 0 is the least significant bit (LSB) and 3 is the most significant bit (MSB). Similarly, 
-switches 4 through 7 represent the second 4-bit number. Switch 9 acts as the carry-in bit, setting it high results in a carry output 
-when both A and B are 0. In case of overflow, indicating a result that cannot be represented using 4 bits, LED 9 will be illuminated 
-to signal overflow (e.g., 8 + 8 = 0, but overflow LED is on).
+switches 4 through 7 represent the second 4-bit number. In case of overflow, indicating a result that cannot be represented using 4 
+bits, LED 9 will be illuminated to signal overflow (e.g., 8 + 8 = 0, but overflow LED is on).
