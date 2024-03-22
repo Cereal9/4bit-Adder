@@ -17,6 +17,7 @@ Instantiation of the FullAdder entity requires the following steps:
     3. Then the PORT MAP specifies the inputs, outputs, and signals connected to the current instantiation.
 
 In the 4 bit adder file, you can see there are 4 instatiation of full adders that are then connected together to create a 4 bit adder. Visually we can see in Figure 1. how they connect when the connection are made correctly. 
+https://private-user-images.githubusercontent.com/115047595/316029471-8381dda8-446e-4527-ae34-956bd93bcd52.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTExMTQ5NjAsIm5iZiI6MTcxMTExNDY2MCwicGF0aCI6Ii8xMTUwNDc1OTUvMzE2MDI5NDcxLTgzODFkZGE4LTQ0NmUtNDUyNy1hZTM0LTk1NmJkOTNiY2Q1Mi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzIyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyMlQxMzM3NDBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zNjU3YzQ2Y2Y0MjBmNTdmY2U5ZDAxNzdkMzI0YzFkNWNlZWQ1OTYwM2I1ZjFlMWIzNWE3MmVmODI1ODc3NzhmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.FXQW0f4O6gaOEtHj2CUTb6v5rHo4RFE7wmg1bwP1XQQ
 
 Signal declaration is often required when the input/output of an instantiation is not connected to the final input/output of the 
 higher hierarchy Entity. That is, that the connections that the instantiation required are only internal. The signals are declared 
