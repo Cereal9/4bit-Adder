@@ -3,7 +3,7 @@ This project aims to implement a 4-bit adder on an Altera Cyclone® V SE 5CSXFC6
 4-bit adder is constructed by integrating four 1-bit full adders. Two fundamental VHDL concepts utilized in this project are 
 instantiation and signal declaration.
 
-Instantiation refers to incorporating a previously designed block in VHDL within the architecture of a higher-level entity. For 
+**Instantiation** refers to incorporating a previously designed block in VHDL within the architecture of a higher-level entity. For 
 instance, the full adder is initially designed in VHDL and then instantiated within the 4-bit Parallel Adder, which acts as a higher 
 hierarchy VHDL design. The process of instantiating the FullAdder entity involves the following steps:
 1. Both VHDL files, FullAdder and FourBitAdder, must be included in the project files.
@@ -21,7 +21,7 @@ The outputs of each full adder, representing the sum, are assigned to individual
 example, if we add 0111 (7) and 0011 (3), the result 1010 (10) will be displayed on the LEDs, where each LED corresponds to a binary 
 digit.
 
-Signal declaration becomes necessary when the inputs/outputs of an instantiation are not directly connected to the final inputs/
+**Signal** declaration becomes necessary when the inputs/outputs of an instantiation are not directly connected to the final inputs/
 outputs of the higher hierarchy entity. In such cases, signals are declared before the BEGIN keyword in the architecture section. 
 When defining a signal, its type (such as STD_LOGIC, STD_LOGIC_VECTOR (range), or any other type) must be specified.
 
