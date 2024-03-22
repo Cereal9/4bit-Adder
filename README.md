@@ -15,6 +15,7 @@ hierarchy VHDL design. The process of instantiating the FullAdder entity involve
 
 In the 4-bit adder file, four instances of full adders are instantiated and connected together to form the 4-bit adder. The 
 schematic representation illustrates how these connections are made to achieve the desired functionality.
+
 ![4bitadder](https://github.com/Cereal9/4bit-Adder/assets/115047595/dd31e573-be66-41ba-b773-1a9f243a6d6b)
 
 The outputs of each full adder, representing the sum, are assigned to individual LEDs to represent the result in binary. For 
