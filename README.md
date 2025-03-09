@@ -1,32 +1,63 @@
-# 4-bit Adder Implementation on FPGA
-This project aims to implement a 4-bit adder on an Altera Cyclone® V SE 5CSXFC6D6F31C6N Field Programmable Gate Array (FPGA). The 
-4-bit adder is constructed by integrating four 1-bit full adders. Two fundamental VHDL concepts utilized in this project are 
-instantiation and signal declaration.
+# 4-Bit Adder Implementation on FPGA
 
-**Instantiation** refers to incorporating a previously designed block in VHDL within the architecture of a higher-level entity. For 
-instance, the full adder is initially designed in VHDL and then instantiated within the 4-bit Parallel Adder, which acts as a higher 
-hierarchy VHDL design. The process of instantiating the FullAdder entity involves the following steps:
-1. Both VHDL files, FullAdder and FourBitAdder, must be included in the project files.
-2. In the higher-level VHDL file (FourBitAdder), the entity of the full adder is replicated as a COMPONENT after the architecture declaration and before the beginning of the architecture.
-3. An instantiation of the FullAdder component is created after the architecture's begin statement, and port mapping is performed to connect inputs, outputs, or signals to the component's ports.
-    1. A unique name is assigned to the instantiation.
-    2. The component being instantiated is identified.
-    3. PORT MAP specifies the connections between inputs, outputs, and signals of the current instantiation.
+## Overview
+This project demonstrates how to build a **4-bit adder** using an **Altera Cyclone® V FPGA**. The adder is made by connecting four **1-bit full adders** together. This project introduces important VHDL concepts like **instantiation** and **signal declaration**.
 
-In the 4-bit adder file, four instances of full adders are instantiated and connected together to form the 4-bit adder. The 
-schematic representation illustrates how these connections are made to achieve the desired functionality.
+## Key VHDL Concepts
 
-![4bitadder](https://github.com/Cereal9/4bit-Adder/assets/115047595/dd31e573-be66-41ba-b773-1a9f243a6d6b)
+### Instantiation
+Instantiation means using a smaller design (like a **FullAdder**) inside a bigger one (like a **FourBitAdder**). The steps to do this in VHDL are:
 
-The outputs of each full adder, representing the sum, are assigned to individual LEDs to represent the result in binary. For 
-example, if we add 0111 (7) and 0011 (3), the result 1010 (10) will be displayed on the LEDs, where each LED corresponds to a binary 
-digit.
+1. **Include the necessary VHDL files**  
+   Both `FullAdder.vhd` and `FourBitAdder.vhd` must be in the project.
 
-**Signal** declaration becomes necessary when the inputs/outputs of an instantiation are not directly connected to the final inputs/
-outputs of the higher hierarchy entity. In such cases, signals are declared before the BEGIN keyword in the architecture section. 
-When defining a signal, its type (such as STD_LOGIC, STD_LOGIC_VECTOR (range), or any other type) must be specified.
+2. **Declare the FullAdder as a Component**  
+   Inside `FourBitAdder.vhd`, the FullAdder component is **defined** before the `BEGIN` statement.
 
-This 4-bit adder utilizes the first seven switches (0-7) as inputs, with switch 9 serving as the carry-in value. Switches 0 through 
-3 represent the first 4-bit number, where 0 is the least significant bit (LSB) and 3 is the most significant bit (MSB). Similarly, 
-switches 4 through 7 represent the second 4-bit number. In case of overflow, indicating a result that cannot be represented using 4 
-bits, LED 9 will be illuminated to signal overflow (e.g., 8 + 8 = 0, but overflow LED is on).
+3. **Use the FullAdder in the design**  
+   - Give each instance a unique name.
+   - Identify the component as `FullAdder`.
+   - Connect the inputs and outputs using **PORT MAP**.
+
+### Signal Declaration
+Signals help connect different parts of the design. In this project:
+- **Internal signals** pass values between the full adders.
+- **Signal types** like `STD_LOGIC` and `STD_LOGIC_VECTOR` are used.
+
+## How It Works
+
+- **Inputs:** The first seven switches (`SW[0-7]`) represent two 4-bit numbers. `SW[9]` is the carry-in.
+- **Outputs:** The result appears on LEDs, showing the sum in binary.
+- **Overflow Handling:** If the sum is too large for 4 bits, `LED9` turns on.
+
+### Schematic
+The diagram below shows how the **4-bit adder** is connected:
+
+![4-bit Adder Schematic](https://github.com/Cereal9/4bit-Adder/assets/115047595/dd31e573-be66-41ba-b773-1a9f243a6d6b)
+
+## Testing & Simulation
+### 1. Simulating the Full Adder
+- A testbench checks if the **FullAdder** works correctly for all input values.
+
+### 2. Simulating the 4-Bit Adder
+- The **FourBitAdder** is tested using different number combinations:
+  - Positive + Positive
+  - Negative + Positive
+  - Negative + Negative
+- The results are compared with manual calculations.
+
+### 3. FPGA Testing
+- **Pin Assignments:** Switches act as inputs, and LEDs display the sum.
+- The FPGA is programmed and tested by flipping switches and checking the LED output.
+
+## Possible Improvements
+- **Seven-Segment Display:** Show the sum on a **seven-segment display** instead of LEDs.
+- **Carry Look-Ahead Adder:** Speed up the adder by using a more advanced design.
+
+## Requirements
+- **Quartus Prime** (FPGA development software)
+- **Altera Cyclone V FPGA**
+- **Basic VHDL knowledge**
+
+## Conclusion
+This project shows how to build a **4-bit adder** using VHDL and an FPGA. It covers essential digital design concepts like **hierarchical design**, **instantiation**, and **signal management** in a simple way.
